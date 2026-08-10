@@ -11,7 +11,9 @@
     "start": "node server/production.mjs"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "framer-motion": "^13.0.0",
+    "node-fetch": "^3.3.2",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
