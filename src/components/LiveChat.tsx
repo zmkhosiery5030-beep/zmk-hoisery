@@ -44,7 +44,17 @@ export function LiveChat() {
         body: JSON.stringify({ messages: nextMessages }),
       });
 
-      const data = (await response.json()) as { reply?: string; error?: string };
+      const raw = await response.text();
+      let data: { reply?: string; error?: string } = {};
+      try {
+        data = JSON.parse(raw) as { reply?: string; error?: string };
+      } catch {
+        setMessages((current) => [
+          ...current,
+          { role: "assistant", content: t.chat.offline },
+        ]);
+        return;
+      }
 
       if (!response.ok || !data.reply) {
         setMessages((current) => [
@@ -52,7 +62,9 @@ export function LiveChat() {
           {
             role: "assistant",
             content:
-              response.status === 503 ? t.chat.offline : data.error || t.chat.error,
+              response.status === 503
+                ? t.chat.offline
+                : data.error || t.chat.error,
           },
         ]);
         return;
