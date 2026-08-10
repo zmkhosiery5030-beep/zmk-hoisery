@@ -4,14 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "dev": "node api.js && vite",
+    "build": "node api.js && tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "start": "node server/production.mjs"
+    "start": "node api.js && node server/production.mjs"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "framer-motion": "^13.0.0",
+    "node-fetch": "^3.3.2",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },

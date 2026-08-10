@@ -153,22 +153,15 @@ export async function handleContactInquiry(payload: ContactPayload) {
 
   if (!salesResult.ok) return salesResult;
 
-  const autoReplyResult = await sendResendEmail({
+  // Auto-reply is best-effort. Resend's onboarding sender can only mail the
+  // account owner until a domain is verified — don't fail the inquiry for that.
+  await sendResendEmail({
     from: fromEmail,
     to: [payload.email],
     subject: "We received your inquiry | ZMK Hosiery",
     html: buildAutoReplyHtml(payload),
     replyTo: toEmail,
   });
-
-  if (!autoReplyResult.ok) {
-    return {
-      ok: false as const,
-      status: autoReplyResult.status,
-      error:
-        "Inquiry email sent, but confirmation email failed. Please check Resend settings.",
-    };
-  }
 
   return {
     ok: true as const,
