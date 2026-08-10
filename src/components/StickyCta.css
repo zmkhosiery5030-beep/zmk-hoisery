@@ -1,0 +1,35 @@
+.sticky-cta {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 55;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(14, 20, 25, 0.94);
+  color: white;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  transform: translateY(110%);
+  transition: transform 0.3s ease;
+}
+
+.sticky-cta.is-visible {
+  transform: translateY(0);
+}
+
+.sticky-cta span {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.sticky-cta .btn {
+  min-height: 2.5rem;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 880px) {
+  .sticky-cta {
+    display: none;
+  }
+}

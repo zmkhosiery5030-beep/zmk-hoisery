@@ -1,0 +1,143 @@
+.live-chat {
+  position: fixed;
+  right: 1rem;
+  bottom: 5.5rem;
+  z-index: 60;
+  display: grid;
+  justify-items: end;
+  gap: 0.75rem;
+}
+
+.live-chat-toggle {
+  width: 3.4rem;
+  height: 3.4rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.live-chat-panel {
+  width: min(360px, calc(100vw - 2rem));
+  height: min(480px, 70vh);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: white;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.live-chat-panel header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+  padding: 0.9rem 1rem;
+  background: var(--ink);
+  color: white;
+}
+
+.live-chat-panel header strong {
+  display: block;
+  font-family: var(--font-display);
+}
+
+.live-chat-panel header span {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.live-chat-panel header button {
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.live-chat-messages {
+  padding: 0.9rem;
+  overflow: auto;
+  display: grid;
+  gap: 0.65rem;
+  background:
+    linear-gradient(180deg, rgba(15, 92, 86, 0.05), transparent 30%),
+    #f4f6f8;
+}
+
+.live-chat-bubble {
+  max-width: 85%;
+  padding: 0.7rem 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.live-chat-bubble.user {
+  justify-self: end;
+  background: var(--accent);
+  color: white;
+}
+
+.live-chat-bubble.assistant {
+  justify-self: start;
+  background: white;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+}
+
+.live-chat-panel form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.45rem;
+  padding: 0.75rem;
+  border-top: 1px solid var(--line);
+  background: white;
+}
+
+.live-chat-panel input {
+  border: 1px solid var(--line);
+  padding: 0.7rem 0.8rem;
+  background: white;
+}
+
+.live-chat-panel form button {
+  border: 0;
+  background: var(--ink);
+  color: white;
+  padding: 0 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.live-chat-panel form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+html[dir="rtl"] .live-chat {
+  right: auto;
+  left: 1rem;
+  justify-items: start;
+}
+
+html[dir="rtl"] .live-chat-bubble.user {
+  justify-self: start;
+}
+
+html[dir="rtl"] .live-chat-bubble.assistant {
+  justify-self: end;
+}
+
+@media (max-width: 700px) {
+  .live-chat {
+    bottom: 5.8rem;
+  }
+}

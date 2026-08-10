@@ -1,0 +1,102 @@
+.contact {
+  background:
+    linear-gradient(135deg, rgba(15, 92, 86, 0.08), transparent 45%),
+    linear-gradient(180deg, #e9eef1, var(--paper));
+}
+
+.contact-layout {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.contact-details {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.contact-details h3 {
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.contact-details p,
+.contact-details a {
+  color: var(--ink-soft);
+}
+
+.contact-details a:hover {
+  color: var(--accent);
+}
+
+.contact-form {
+  display: grid;
+  gap: 0.9rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  padding: 1.4rem;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: var(--radius);
+  padding: 0.8rem 0.9rem;
+  color: var(--ink);
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: 2px solid rgba(15, 92, 86, 0.25);
+  border-color: var(--accent);
+}
+
+.contact-form .full {
+  grid-column: 1 / -1;
+}
+
+.form-note {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.contact-send-actions {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.contact-send-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+@media (min-width: 880px) {
+  .contact-layout {
+    grid-template-columns: 0.95fr 1.05fr;
+    align-items: start;
+    gap: 3.5rem;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr 1fr;
+    padding: 1.8rem;
+  }
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 86" fill="none" role="img" aria-label="ZMK Hosiery">
+  <path d="M28 18h52l-40 36h44v10H24l40-36H28V18z" fill="#0E1419"/>
+  <path d="M94 64V18h12l20 34 20-34h12v46h-12V32l-14 24h-12L106 32v32H94z" fill="#0E1419"/>
+  <path d="M178 64V18h12v18l18-18h15l-24 24 26 22h-16l-19-16v16h-12z" fill="#0E1419"/>
+  <path d="M48 72h124" stroke="#0F5C56" stroke-width="3" stroke-linecap="round"/>
+  <path d="M68 72c4 5 8 5 12 0s8-5 12 0 8 5 12 0 8-5 12 0 8 5 12 0 8-5 12 0 8 5 12 0 8-5 12 0" stroke="#0F5C56" stroke-width="2" stroke-linecap="round"/>
+</svg>

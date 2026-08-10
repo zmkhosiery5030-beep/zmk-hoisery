@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZMK Hosiery Capability Sheet</title>
+    <style>
+      :root {
+        --ink: #0e1419;
+        --accent: #0f5c56;
+        --muted: #5c6b78;
+        --line: #d7dde3;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--ink);
+        background: #f7f8fa;
+        line-height: 1.5;
+      }
+      .sheet {
+        max-width: 800px;
+        margin: 2rem auto;
+        background: white;
+        padding: 2.5rem;
+        border: 1px solid var(--line);
+      }
+      h1 {
+        font-family: Arial, sans-serif;
+        font-size: 2rem;
+        letter-spacing: -0.03em;
+        margin: 0 0 0.25rem;
+      }
+      .accent {
+        color: var(--accent);
+        font-family: Arial, sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      h2 {
+        font-family: Arial, sans-serif;
+        font-size: 1.1rem;
+        margin: 1.8rem 0 0.6rem;
+        border-top: 1px solid var(--line);
+        padding-top: 1rem;
+      }
+      p, li { color: var(--muted); }
+      ul { padding-left: 1.2rem; }
+      .meta { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+      .meta div { border: 1px solid var(--line); padding: 0.8rem; }
+      .meta strong { display: block; color: var(--ink); font-family: Arial, sans-serif; }
+      .actions { margin: 1rem auto 2rem; max-width: 800px; display: flex; gap: 0.75rem; }
+      .actions button, .actions a {
+        font-family: Arial, sans-serif;
+        border: 0;
+        background: var(--accent);
+        color: white;
+        padding: 0.75rem 1.1rem;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      @media print {
+        body { background: white; }
+        .actions { display: none; }
+        .sheet { border: 0; margin: 0; max-width: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="actions">
+      <button onclick="window.print()">Print / Save as PDF</button>
+      <a href="/">Back to website</a>
+    </div>
+    <article class="sheet">
+      <p class="accent">Capability sheet</p>
+      <h1>ZMK Hosiery</h1>
+      <p>Socks manufacturer and exporter · Faisalabad, Pakistan</p>
+
+      <div class="meta">
+        <div>
+          <strong>Focus</strong>
+          Socks manufacturing for export and local wholesale
+        </div>
+        <div>
+          <strong>Contact</strong>
+          sales@zmkhosiery.com<br />
+          +92 323 6605030
+        </div>
+      </div>
+
+      <h2>Product range</h2>
+      <ul>
+        <li>Casual socks</li>
+        <li>Sports socks</li>
+        <li>Diabetic socks</li>
+        <li>Kids socks</li>
+        <li>Formal / dress socks</li>
+        <li>Custom and private-label socks</li>
+      </ul>
+
+      <h2>Capabilities</h2>
+      <ul>
+        <li>Yarn sourcing matched to construction</li>
+        <li>Product development and sampling</li>
+        <li>Merchandising and order follow-up</li>
+        <li>Production planning for export timelines</li>
+        <li>Inline and final quality control</li>
+        <li>Packed and labeled cartons for local or overseas freight</li>
+      </ul>
+
+      <h2>Capacity highlights</h2>
+      <ul>
+        <li>7.5M+ pairs annual capacity</li>
+        <li>About 1000 dozen pairs per day</li>
+        <li>Export programs and Pakistan wholesale supply</li>
+      </ul>
+
+      <h2>How to inquire</h2>
+      <p>
+        Share sock type, quantity range, destination market, branding needs, and
+        target delivery. Sampling options and production windows are confirmed
+        after review.
+      </p>
+    </article>
+  </body>
+</html>
