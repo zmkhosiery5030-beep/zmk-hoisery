@@ -1,0 +1,24 @@
+{
+  "name": "ZMK Hosiery | Socks Manufacturer Pakistan",
+  "short_name": "ZMK Hosiery",
+  "description": "Socks manufacturer and exporter in Faisalabad, Pakistan for custom, private label, and wholesale socks.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0E1419",
+  "theme_color": "#0F5C56",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/zmk-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,4 +1,15 @@
 User-agent: *
 Allow: /
+Allow: /images/
+Allow: /capability-sheet.html
+
+Disallow: /api/
+Disallow: /src/
 
 Sitemap: https://zmkhosiery.com/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

@@ -25,6 +25,7 @@ export function Footer() {
           <a href="#gallery">{t.nav.gallery}</a>
           <a href="#capabilities">{t.nav.capabilities}</a>
           <a href="#insights">{t.nav.insights}</a>
+          <a href="#manufacturing">{t.seo.label}</a>
           <a href="#faq">{t.nav.faq}</a>
           <a href="#contact">{t.nav.contact}</a>
         </div>

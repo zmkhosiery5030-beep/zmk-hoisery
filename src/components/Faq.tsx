@@ -31,17 +31,28 @@ export function Faq() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: index * 0.03 }}
               >
-                <button
-                  type="button"
-                  aria-expanded={open}
-                  onClick={() => setOpenIndex(open ? -1 : index)}
+                <h3>
+                  <button
+                    type="button"
+                    aria-expanded={open}
+                    aria-controls={`faq-panel-${index}`}
+                    id={`faq-button-${index}`}
+                    onClick={() => setOpenIndex(open ? -1 : index)}
+                  >
+                    <span>{item.q}</span>
+                    <span className="faq-icon" aria-hidden="true">
+                      {open ? "−" : "+"}
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  id={`faq-panel-${index}`}
+                  role="region"
+                  aria-labelledby={`faq-button-${index}`}
+                  hidden={!open}
                 >
-                  <span>{item.q}</span>
-                  <span className="faq-icon" aria-hidden="true">
-                    {open ? "−" : "+"}
-                  </span>
-                </button>
-                {open && <p>{item.a}</p>}
+                  <p>{item.a}</p>
+                </div>
               </motion.div>
             );
           })}

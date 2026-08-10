@@ -17,6 +17,11 @@
   background: rgba(255, 255, 255, 0.7);
 }
 
+.faq-item h3 {
+  margin: 0;
+  font-size: inherit;
+}
+
 .faq-item button {
   width: 100%;
   display: flex;

@@ -13,6 +13,7 @@ export function Navbar() {
     { href: "#gallery", label: t.nav.gallery },
     { href: "#capabilities", label: t.nav.capabilities },
     { href: "#insights", label: t.nav.insights },
+    { href: "#manufacturing", label: t.seo.label },
     { href: "#faq", label: t.nav.faq },
     { href: "#contact", label: t.nav.contact },
   ];

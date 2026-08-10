@@ -20,6 +20,9 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 const STORAGE_KEY = "zmk-locale";
 
 function readInitialLocale(): Locale {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("lang") === "ur") return "ur";
+  if (params.get("lang") === "en") return "en";
   const saved = localStorage.getItem(STORAGE_KEY);
   return saved === "ur" ? "ur" : "en";
 }
@@ -37,9 +40,21 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     () => ({
       locale,
       t: translations[locale],
-      setLocale: setLocaleState,
-      toggleLocale: () =>
-        setLocaleState((current) => (current === "en" ? "ur" : "en")),
+      setLocale: (next) => {
+        setLocaleState(next);
+        const url = new URL(window.location.href);
+        url.searchParams.set("lang", next);
+        window.history.replaceState({}, "", url);
+      },
+      toggleLocale: () => {
+        setLocaleState((current) => {
+          const next = current === "en" ? "ur" : "en";
+          const url = new URL(window.location.href);
+          url.searchParams.set("lang", next);
+          window.history.replaceState({}, "", url);
+          return next;
+        });
+      },
     }),
     [locale],
   );

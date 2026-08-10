@@ -13,7 +13,11 @@ export function Hero() {
       <div className="hero-media" aria-hidden="true">
         <motion.img
           src={heroImage}
-          alt=""
+          alt="Chinese computerized sock knitting machines at ZMK Hosiery factory in Faisalabad, Pakistan"
+          width={1920}
+          height={1080}
+          fetchPriority="high"
+          decoding="async"
           initial={reduceMotion ? false : { scale: 1.08 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}

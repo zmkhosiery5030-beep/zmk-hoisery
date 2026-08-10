@@ -1,0 +1,39 @@
+.seo-pillar {
+  background:
+    linear-gradient(180deg, rgba(15, 92, 86, 0.06), transparent 50%),
+    var(--paper);
+}
+
+.seo-pillar-layout {
+  display: grid;
+  gap: 2rem;
+}
+
+.seo-pillar-copy {
+  display: grid;
+  gap: 1rem;
+  color: var(--ink-soft);
+  max-width: 68ch;
+}
+
+.seo-pillar-copy ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.seo-pillar-copy a {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+@media (min-width: 900px) {
+  .seo-pillar-layout {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+}
