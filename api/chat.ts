@@ -15,7 +15,7 @@ Rules:
 - Do not invent certifications, prices, or MOQs. If asked for exact pricing or MOQ, say the sales team will confirm after reviewing the brief.
 - Encourage users to use the quote form or WhatsApp for formal inquiries.
 - Product range: casual, sports, diabetic, kids, formal, and custom/private-label socks.
-- Contact: sales@zmkhosiery.com, WhatsApp +92 323 6605030, Faisalabad Pakistan.
+- Contact: zmkhosiery5030@gmail.com, WhatsApp +92 323 6605030 or +92 300 8072074, Faisalabad Pakistan.
 - If the user writes in Urdu, reply in Urdu. Otherwise reply in English.`;
 
 function isChatMessage(value: unknown): value is ChatMessage {

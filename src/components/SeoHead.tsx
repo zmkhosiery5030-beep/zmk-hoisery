@@ -43,8 +43,8 @@ export function SeoHead() {
 
     const description =
       locale === "ur"
-        ? "ZMK Hosiery فیصل آباد میں جراب مینوفیکچرر اور ایکسپورٹر ہے۔ کسٹم، پرائیویٹ لیبل، اسپورٹس، ذیابیطس، بچوں اور ہول سیل جرابیں۔ رابطہ +92 323 6605030۔"
-        : "ZMK Hosiery is a socks manufacturer and exporter in Faisalabad, Pakistan. Custom, private label, sports, diabetic, kids, and wholesale socks for global buyers and local markets. Call +92 323 6605030.";
+        ? "ZMK Hosiery فیصل آباد میں جراب مینوفیکچرر اور ایکسپورٹر ہے۔ کسٹم، پرائیویٹ لیبل، اسپورٹس، ذیابیطس، بچوں اور ہول سیل جرابیں۔ رابطہ +92 323 6605030 یا +92 300 8072074۔"
+        : "ZMK Hosiery is a socks manufacturer and exporter in Faisalabad, Pakistan. Custom, private label, sports, diabetic, kids, and wholesale socks for global buyers and local markets. Call +92 323 6605030 or +92 300 8072074.";
 
     document.title = title;
     document.documentElement.lang = locale === "ur" ? "ur" : "en";

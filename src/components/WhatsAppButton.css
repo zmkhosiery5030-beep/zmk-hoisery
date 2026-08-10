@@ -1,16 +1,24 @@
-.whatsapp-fab {
+.whatsapp-widget {
   position: fixed;
   left: 1rem;
   bottom: 5.5rem;
   z-index: 60;
+  display: grid;
+  justify-items: start;
+  gap: 0.7rem;
+}
+
+.whatsapp-fab {
   width: 3.4rem;
   height: 3.4rem;
+  border: 0;
   border-radius: 999px;
   display: grid;
   place-items: center;
   background: #128c7e;
   color: white;
   box-shadow: var(--shadow);
+  cursor: pointer;
   transition: transform 0.2s ease;
 }
 
@@ -23,13 +31,57 @@
   height: 1.55rem;
 }
 
-html[dir="rtl"] .whatsapp-fab {
+.whatsapp-chooser {
+  width: min(260px, calc(100vw - 2rem));
+  background: white;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 0.85rem;
+}
+
+.whatsapp-chooser > p {
+  margin: 0 0 0.7rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.whatsapp-chooser-list {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.whatsapp-chooser-list a {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid var(--line);
+  background: #f7fbfa;
+  color: var(--ink);
+}
+
+.whatsapp-chooser-list a:hover {
+  border-color: #128c7e;
+  background: #eef8f6;
+}
+
+.whatsapp-chooser-list strong {
+  font-size: 0.86rem;
+}
+
+.whatsapp-chooser-list span {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+html[dir="rtl"] .whatsapp-widget {
   left: auto;
   right: 1rem;
+  justify-items: end;
 }
 
 @media (max-width: 700px) {
-  .whatsapp-fab {
+  .whatsapp-widget {
     bottom: 5.8rem;
   }
 }

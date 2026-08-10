@@ -77,6 +77,13 @@
   color: var(--accent);
 }
 
+.form-error {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #b42318;
+}
+
 .contact-send-actions {
   display: grid;
   gap: 0.8rem;

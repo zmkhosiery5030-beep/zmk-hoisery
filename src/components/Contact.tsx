@@ -1,6 +1,6 @@
-import { useMemo, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { buildMailtoUrl, buildWhatsAppUrl, siteConfig } from "../lib/config";
+import { buildWhatsAppUrl, siteConfig } from "../lib/config";
 import { useLanguage } from "../i18n/LanguageContext";
 import "./Contact.css";
 
@@ -15,6 +15,8 @@ type FormState = {
   destination: string;
   message: string;
 };
+
+type SubmitState = "idle" | "sending" | "success" | "error";
 
 const initialForm: FormState = {
   name: "",
@@ -32,38 +34,51 @@ export function Contact() {
   const { t } = useLanguage();
   const reduceMotion = useReducedMotion();
   const [form, setForm] = useState<FormState>(initialForm);
-  const [ready, setReady] = useState(false);
-
-  const inquiryText = useMemo(() => {
-    const marketLabel =
-      t.contact.marketOptions[form.market as keyof typeof t.contact.marketOptions] ||
-      form.market;
-    const sockLabel =
-      t.contact.sockOptions[form.sockType as keyof typeof t.contact.sockOptions] ||
-      form.sockType;
-
-    return [
-      "New sock inquiry from ZMK website",
-      `Name: ${form.name}`,
-      `Company: ${form.company || "-"}`,
-      `Email: ${form.email}`,
-      `Phone/WhatsApp: ${form.phone || "-"}`,
-      `Market: ${marketLabel}`,
-      `Sock type: ${sockLabel}`,
-      `Quantity: ${form.quantity || "-"}`,
-      `Destination: ${form.destination || "-"}`,
-      `Message: ${form.message}`,
-    ].join("\n");
-  }, [form, t]);
+  const [status, setStatus] = useState<SubmitState>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((current) => ({ ...current, [key]: value }));
-    setReady(false);
+    if (status !== "idle" && status !== "sending") {
+      setStatus("idle");
+      setErrorMessage("");
+    }
   }
 
-  function handlePrepare(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setReady(true);
+    setStatus("sending");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const raw = await response.text();
+      let data: { ok?: boolean; error?: string } = {};
+      try {
+        data = JSON.parse(raw) as { ok?: boolean; error?: string };
+      } catch {
+        setStatus("error");
+        setErrorMessage(t.contact.error);
+        return;
+      }
+
+      if (!response.ok || !data.ok) {
+        setStatus("error");
+        setErrorMessage(data.error || t.contact.error);
+        return;
+      }
+
+      setStatus("success");
+      setForm(initialForm);
+    } catch {
+      setStatus("error");
+      setErrorMessage(t.contact.error);
+    }
   }
 
   return (
@@ -83,9 +98,11 @@ export function Contact() {
             </div>
             <div>
               <h3>{t.contact.sales}</h3>
-              <p>
-                <a href={`tel:+${siteConfig.whatsappNumber}`}>{siteConfig.phoneDisplay}</a>
-              </p>
+              {siteConfig.phones.map((phone) => (
+                <p key={phone.id}>
+                  <a href={`tel:+${phone.number}`}>{phone.display}</a>
+                </p>
+              ))}
               <p>
                 <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
               </p>
@@ -99,7 +116,7 @@ export function Contact() {
 
         <motion.form
           className="contact-form"
-          onSubmit={handlePrepare}
+          onSubmit={handleSubmit}
           initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -205,30 +222,36 @@ export function Contact() {
             />
           </label>
 
-          <button className="btn btn-dark full" type="submit">
-            {ready ? t.contact.submitted : t.contact.submit}
+          <button
+            className="btn btn-dark full"
+            type="submit"
+            disabled={status === "sending"}
+          >
+            {status === "sending" ? t.contact.sending : t.contact.submit}
           </button>
 
-          {ready && (
+          {status === "success" && (
             <div className="contact-send-actions full">
-              <p className="form-note">{t.contact.note}</p>
+              <p className="form-note">{t.contact.success}</p>
+              <p className="form-note">{t.whatsapp.chooseTitle}</p>
               <div className="contact-send-buttons">
-                <a
-                  className="btn btn-primary"
-                  href={buildWhatsAppUrl(inquiryText)}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {t.contact.whatsappSend}
-                </a>
-                <a
-                  className="btn btn-outline"
-                  href={buildMailtoUrl("ZMK Hosiery sock inquiry", inquiryText)}
-                >
-                  {t.contact.emailSend}
-                </a>
+                {siteConfig.phones.map((phone) => (
+                  <a
+                    key={phone.id}
+                    className="btn btn-outline"
+                    href={buildWhatsAppUrl(t.whatsapp.prefill, phone.number)}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {t.contact.whatsappSend} {phone.display}
+                  </a>
+                ))}
               </div>
             </div>
+          )}
+
+          {status === "error" && (
+            <p className="form-error full">{errorMessage || t.contact.error}</p>
           )}
         </motion.form>
       </div>

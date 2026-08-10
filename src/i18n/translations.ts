@@ -190,7 +190,7 @@ export const translations = {
         },
         {
           q: "How do I contact ZMK Hosiery for a quote?",
-          a: "Use the quote form, WhatsApp at +92 323 6605030, or live chat. Include sock type, quantity range, destination, and branding needs.",
+          a: "Use the quote form, WhatsApp at +92 323 6605030 or +92 300 8072074, or live chat. Include sock type, quantity range, destination, and branding needs.",
         },
       ],
     },
@@ -236,10 +236,13 @@ export const translations = {
         message: "Construction details, branding, packing, target delivery",
       },
       submit: "Send inquiry",
-      submitted: "Inquiry ready",
-      whatsappSend: "Send via WhatsApp",
-      emailSend: "Send via email",
-      note: "Choose WhatsApp or email to deliver your inquiry to our sales team.",
+      sending: "Sending inquiry...",
+      success:
+        "Thank you. Your inquiry was sent to our sales team, and a confirmation email was sent to you. We will respond shortly.",
+      error:
+        "We could not send your inquiry right now. Please try again or WhatsApp us.",
+      whatsappSend: "Also chat on WhatsApp",
+      note: "Your inquiry is emailed to our sales team automatically. You will also receive a confirmation email.",
     },
     footer: {
       tag: "Socks manufacturer and exporter based in Faisalabad, Pakistan.",
@@ -251,6 +254,7 @@ export const translations = {
     },
     whatsapp: {
       label: "Chat on WhatsApp",
+      chooseTitle: "Choose a WhatsApp number",
       prefill:
         "Hello ZMK Hosiery, I am interested in sock manufacturing. Please share sampling details.",
     },
@@ -459,7 +463,7 @@ export const translations = {
         },
         {
           q: "کوٹ کے لیے ZMK Hosiery سے کیسے رابطہ کریں؟",
-          a: "کوٹ فارم، واٹس ایپ +92 323 6605030، یا لائیو چیٹ استعمال کریں۔ جراب کی قسم، مقدار، منزل اور برانڈنگ شامل کریں۔",
+          a: "کوٹ فارم، واٹس ایپ +92 323 6605030 یا +92 300 8072074، یا لائیو چیٹ استعمال کریں۔ جراب کی قسم، مقدار، منزل اور برانڈنگ شامل کریں۔",
         },
       ],
     },
@@ -505,10 +509,13 @@ export const translations = {
         message: "کنسٹرکشن، برانڈنگ، پیکنگ، مطلوبہ ڈیلیوری",
       },
       submit: "انکوائری بھیجیں",
-      submitted: "انکوائری تیار",
-      whatsappSend: "واٹس ایپ سے بھیجیں",
-      emailSend: "ای میل سے بھیجیں",
-      note: "اپنی انکوائری سیلز ٹیم تک پہنچانے کے لیے واٹس ایپ یا ای میل منتخب کریں۔",
+      sending: "انکوائری بھیجی جا رہی ہے...",
+      success:
+        "شکریہ۔ آپ کی انکوائری ہماری سیلز ٹیم کو بھیج دی گئی ہے، اور آپ کو تصدیقی ای میل بھی بھیجی گئی ہے۔ ہم جلد جواب دیں گے۔",
+      error:
+        "ابھی انکوائری نہیں بھیجی جا سکی۔ دوبارہ کوشش کریں یا واٹس ایپ کریں۔",
+      whatsappSend: "واٹس ایپ پر بھی بات کریں",
+      note: "آپ کی انکوائری خودکار طور پر سیلز ٹیم کو ای میل ہو جاتی ہے، اور آپ کو تصدیقی ای میل بھی ملتی ہے۔",
     },
     footer: {
       tag: "فیصل آباد، پاکستان میں جرابوں کا مینوفیکچرر اور ایکسپورٹر۔",
@@ -520,6 +527,7 @@ export const translations = {
     },
     whatsapp: {
       label: "واٹس ایپ پر بات کریں",
+      chooseTitle: "واٹس ایپ نمبر منتخب کریں",
       prefill:
         "السلام علیکم ZMK Hosiery، مجھے جراب مینوفیکچرنگ میں دلچسپی ہے۔ براہ کرم سیمپلنگ کی تفصیل بھیجیں۔",
     },
